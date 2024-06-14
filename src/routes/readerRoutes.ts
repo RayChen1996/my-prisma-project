@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createReader } from "../controllers/readerController";
+// import { createReader } from "../controllers/readerController";
 
 const router = Router();
 /**
@@ -22,7 +22,7 @@ const router = Router();
  *             schema:
  *               $ref: '#/components/schemas/Reader'
  */
-router.post("/readers", createReader);
+// router.post("/readers", createReader);
 
 // 註冊其他路由
 

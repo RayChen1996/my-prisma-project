@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const readerController_1 = require("../controllers/readerController");
+// import { createReader } from "../controllers/readerController";
 const router = (0, express_1.Router)();
 /**
  * @swagger
@@ -23,6 +23,6 @@ const router = (0, express_1.Router)();
  *             schema:
  *               $ref: '#/components/schemas/Reader'
  */
-router.post("/readers", readerController_1.createReader);
+// router.post("/readers", createReader);
 // 註冊其他路由
 exports.default = router;
