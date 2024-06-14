@@ -4,9 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev src/server.ts",
+    "start": "ts-node src/server.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
     "build": "tsc",
-    "prisma": "prisma"
+    "vercel-dev": "vercel dev",
+    "deploy": "vercel --prod"
   },
   "keywords": [],
   "author": "",
