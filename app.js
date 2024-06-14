@@ -1,8 +1,16 @@
+import express from "express";
+import { PrismaClient } from "@prisma/client";
+import logger from "morgan";
 const app = express();
 const prisma = new PrismaClient();
-
+import cookieParser from "cookie-parser";
+import path from "node:path";
 app.use(logger("dev"));
 app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = __dirname(__filename);
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
@@ -118,3 +126,4 @@ app.get("/me", authMiddleware, async (req, res) => {
 });
 
 export default app;
+// module.exports = app;
