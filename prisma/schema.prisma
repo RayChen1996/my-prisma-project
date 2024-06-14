@@ -12,23 +12,20 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+
 model User {
-  id       String            @id @default(auto()) @map("_id") @db.ObjectId
-  email    String   @unique
-  name     String
-  password String
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String @unique
+  password  String
+   readers  Reader[]
 }
 
-model ToDoList {
-  id    String            @id @default(auto()) @map("_id") @db.ObjectId
-  userId String
-  title  String
-  tasks  String[]
-}
-
-model ResetToken {
-  id        String            @id @default(auto()) @map("_id") @db.ObjectId
-  userId    String
-  token     String
-  createdAt DateTime @default(now())
+model Reader {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String @db.ObjectId
+  bookTitle String
+  progress  Int
+  user     User   @relation(fields: [userId], references: [id])
 }
